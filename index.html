@@ -36,6 +36,7 @@
 </head>
 
 <body>
+    <!-- header section start -->
     <header>
         <div class="navbar bg-base-100 shadow-sm">
             <div class="navbar-start">
@@ -48,22 +49,24 @@
                         </svg>
                     </div>
                     <ul tabindex="-1"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
                         <li>
-                            <a>Parent</a>
-                            <ul class="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
+                            <a href=""> <i class="fa-solid fa-circle-question"></i>
+                                FAQ</a>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li>
+                            <a href=""><i class="fa-solid fa-book-open"></i>
+                                Learn</a>
+                        </li>
+                        <li>
+                            <a href=""> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        </li>
                     </ul>
                 </div>
                 <a class="flex items-center gap-2 text-2xl font-semibold ">
                     <span>English</span>
                     <img src="./assets/logo.png" alt="logo">
-                    <span class=" text-xl ">জানালা</span>
+                    <span class=" text-xl font-bangla">জানালা</span>
                 </a>
             </div>
 
@@ -84,6 +87,52 @@
             </div>
         </div>
     </header>
+    <!-- header section end -->
+
+    <!-- main section start -->
+    <main>
+        <!-- hero section start -->
+        <section class="container mx-auto p-5 flex flex-col-reverse md:flex-row justify-center gap-10 mt-15 ">
+            <div class="hero-content flex flex-col items-center md:items-start flex-1">
+                <h2 class="text-4xl font-bold"><span class="text-blue-400">English</span> is Easy!!</h2>
+                <p class="font-bangla text-xl md:text-2xl text-center md:text-start">আজ থেকেই আপনার ভাষা শেখার যাত্রা
+                    শুরু করুন।
+                    আপনি যদি নতুন হন অথবা আপনার
+                    দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <form class="flex flex-col gap-2 items-center md:items-start">
+                    <input type="text" placeholder="Enter Your Name"
+                        class="py-1 px-3 rounded-sm border border-gray-300">
+                    <input type="password " placeholder=".................."
+                        class="py-1 px-3 rounded-sm border border-gray-300">
+                    <input type="button" value="Get Start" class="btn btn-active btn-primary w-fit">
+                </form>
+            </div>
+
+            <div class="hero-img flex-1">
+                <img src="./assets/hero-student.png" alt="hero student image">
+            </div>
+        </section>
+        <!-- hero section end -->
+
+        <!-- lesson section start -->
+        <section class="container mx-auto p-5 mt-36">
+            <div>
+                <h2 class="text-4xl font-bold text-center"><span class="text-blue-400">Let's</span> Learn Vocabularies
+                </h2>
+                <div id="lesson-container" class="mt-5 space-x-4">
+                    <button class="btn btn-outline btn-primary"> <i class="fa-solid fa-circle-question"></i>
+                        FAQ</button>
+                    <button class="btn btn-outline btn-primary"> <i class="fa-solid fa-circle-question"></i>
+                        FAQ</button>
+
+                </div>
+            </div>
+        </section>
+        <!-- lesson section end -->
+
+    </main>
+    <!-- main section end -->
 </body>
 
 </html>
