@@ -18,9 +18,16 @@ const displayData = (datas) => {
 
     lessons.forEach(lesson => {
         const lessonElement = document.createElement('button');
-        lessonElement.classList.add('btn', 'btn-outline', 'btn-primary');
+        lessonElement.id = `lesson${lesson.level_no}`;
+
+        lessonElement.classList.add('btn', 'btn-outline', 'btn-primary', 'lesson-button');
         lessonElement.addEventListener('click', () => {
             loadLevelWord(lesson.level_no)
+
+            removeActiveClass();
+
+            const selectedLesson = document.getElementById(`lesson${lesson.level_no}`);
+            selectedLesson.classList.add('active');
         });
 
         lessonElement.innerHTML = `
@@ -42,9 +49,8 @@ const loadLevelWord = (id) => {
 }
 
 const displayLevelWord = (data) => {
-
-    console.log(data.data);
     const levelWordContainerElement = document.getElementById('level-word-container');
+
     levelWordContainerElement.innerHTML = "";
 
     const wordsContainer = document.createElement('div');
@@ -54,19 +60,22 @@ const displayLevelWord = (data) => {
 
 
     const words = data.data;
-    console.log(words.length);
-
+    console.log(words);
     if (words.length !== 0) {
         words.forEach(word => {
-            const div = document.createElement('div');
-            div.classList.add('bg-white', 'p-10', 'text-center', 'space-y-6', 'rounded-sm',);
+            const card = document.createElement('div');
+            card.classList.add('bg-white', 'p-10', 'text-center', 'space-y-6', 'rounded-sm');
 
+            card.addEventListener('click', () => {
+                loadWordDelail(word.id)
+            });
 
-            div.innerHTML = `
+            card.innerHTML = `
            
-                <h3 class="text-3xl font-bold ">${word.word}</h3>
+                <h3 class="text-3xl font-bold ">${word.word ? word.word : 'word not abileabile'}</h3>
+
                 <p class="text-xl  font-medium">Meaning / Pronounciation</p>
-                <h3 class="text-3xl text-gray-700 font-bold font-bangla">${word.meaning}/${word.pronunciation}</h3>
+                <h3 class="text-3xl text-gray-700 font-bold font-bangla">${word.meaning ? word.meaning : 'word mening not abileabile'} / ${word.pronunciation ? word.pronunciation : 'pronunciation not abileabile'}</h3>
 
                 <div class="flex items-center justify-between  mt-20">
                     <div class="bg-blue-100 p-3 rounded-sm ">
@@ -79,7 +88,11 @@ const displayLevelWord = (data) => {
                 </div>
            
         `;
-            wordsContainer.append(div);
+
+
+
+            wordsContainer.append(card);
+
         });
     } else {
         // const noWord = document.createElement('div');
@@ -92,14 +105,128 @@ const displayLevelWord = (data) => {
         `
     }
 
-
     levelWordContainerElement.append(wordsContainer);
-
 
 }
 
+const removeActiveClass = () => {
+    const lessonButtons = document.querySelectorAll('.lesson-button');
+    lessonButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+}
+
+
+const loadWordDelail = async (id) => {
+    const URL = `https://openapi.programming-hero.com/api/word/${id}`
+
+    const res = await fetch(URL)
+    const detali = await res.json();
+    displayWordDelail(detali.data)
+}
+
+
+/*
+id
+: 
+5
+level
+: 
+1
+meaning
+: 
+"আগ্রহী"
+partsOfSpeech
+: 
+"adjective"
+points
+: 
+1
+pronunciation
+: 
+"ইগার"
+sentence
+: 
+"The kids were eager to open their gifts."
+synonyms
+: 
+(3) ['enthusiastic', 'excited', 'keen']
+word
+: 
+"Eager"
+
+*/
+const displayWordDelail = (data) => {
+    console.log(data);
+    const modalDetailContainerElement = document.getElementById('modal-detail-container');
+
+    modalDetailContainerElement.innerHTML = `
+        <h3 class="text-2xl font-bold mb-5">${data.word ? data.word : 'word not abileabile'} <span
+                            class="font-bangla">(<i class="fa-solid fa-microphone-lines"></i>:${data.pronunciation ?
+            data.pronunciation : 'pronunciation not abileabile'} )</span></h3>
+
+                    <p class="text-xl  font-medium">Meaning</p>
+                    <p class="text-xl  font-medium font-bangla mb-5">${data.meaning ? data.meaning : 'word mening notabileabile'}</p>
+
+                    <p class="text-xl  font-medium"> Example</p>
+                    <p> ${data.sentence}</p>
+
+                    <p class="font-bangla mt-5 text-xl text-black">সমার্থক শব্দ গুলো</p>
+
+                    <div class="flex flex-wrap gap-4">
+                        ${data.synonyms && data.synonyms.length > 0
+            ? data.synonyms.map(syn => `<button class="btn">${syn}</button>`).join('')
+            : '<p>No synonyms available</p>'
+        }
+    </div>
+
+
+             <p class="py-4">Press ESC key or click the button below to close</p>
+
+        `
+    const myModal = document.getElementById('my_modal').showModal();
+
+}
 init();
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// card.addEventListener('click', () => {
+//     my_modal.showModal();
+//     myModal.innerHTML = `
+// <div class="modal-box">
+//     <h3 class="text-2xl font-bold mb-5">${word.word ? word.word : 'word not abileabile'} <span class=
+//     "font-bangla">(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation ? word.pronunciation : 'pronunciation not abileabile'} )</span></h3>
+//     <p class="text-xl  font-medium">Meaning</p>
+//     <p class="text-xl  font-medium font-bangla mb-5">${word.meaning ? word.meaning : 'word mening not abileabile'}</p>
+
+//     <p class="text-xl  font-medium">Example</p>
+
+//     <p class="py-4">Press ESC key or click the button below to close</p>
+
+//     <div class="modal-action">
+//         <form method="dialog">
+//             <!-- if there is a button in form, it will close the modal -->
+//             <button class="btn btn-primary">Complete Learning</button>
+//         </form>
+//     </div>
+// </div>
+// `;
+// })
+
+
+// modal inner html

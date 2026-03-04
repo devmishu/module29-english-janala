@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>module29 English Janala Project</title>
+    <title>module29 English Janala Project| login</title>
 
     <!-- febicon set -->
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
@@ -59,7 +59,7 @@
                                 Learn</a>
                         </li>
                         <li>
-                            <a href="login.html"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                            <a href=""> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -80,7 +80,7 @@
                         <a href="" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a>
                     </li>
                     <li>
-                        <a href="login.html" class="btn btn-outline btn-primary"> <i
+                        <a href="" class="btn btn-outline btn-primary"> <i
                                 class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </li>
                 </ul>
@@ -90,48 +90,34 @@
     <!-- header section end -->
 
     <!-- main section start -->
-    <main>
-        <!-- lesson section start -->
-        <section class="container mx-auto p-5 mt-36">
-            <div>
-                <h2 class="text-4xl font-bold text-center"><span class="text-blue-400">Let's</span> Learn Vocabularies
-                </h2>
-                <div id="lesson-container" class="mt-5  flex flex-wrap justify-center items-center gap-5 ">
-                </div>
+   
+        <!-- hero section start -->
+        <section class="container mx-auto p-5 flex flex-col-reverse md:flex-row justify-center gap-10 mt-15 ">
+            <div class="hero-content flex flex-col items-center md:items-start flex-1">
+                <h2 class="text-4xl font-bold"><span class="text-blue-400">English</span> is Easy!!</h2>
+                <p class="font-bangla text-xl md:text-2xl text-center md:text-start">আজ থেকেই আপনার ভাষা শেখার যাত্রা
+                    শুরু করুন।
+                    আপনি যদি নতুন হন অথবা আপনার
+                    দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+
+
+                <form class="flex flex-col gap-2 items-center md:items-start">
+                    <input id="LoginName" type="text" placeholder="Enter Your Name"
+                        class="py-1 px-3 rounded-sm border border-gray-300">
+                    <input id="LoginPassword" type="password " placeholder=".................."
+                        class="py-1 px-3 rounded-sm border border-gray-300">
+                    <input id="LoginButton" type="button" value="Get Start" class="btn btn-active btn-primary w-fit">
+                </form>
+            </div>
+
+            <div class="hero-img flex-1">
+                <img src="./assets/hero-student.png" alt="hero student image">
             </div>
         </section>
-        <!-- lesson section end -->
+        <!-- hero section end -->
 
-        <!-- level word show section start -->
-        <section id="level-word-container" class="container mx-auto p-5 bg-gray-100 py-10 my-10 rounded-sm ">
-            <div class="flex flex-col items-center justify-center space-y-4">
-                <p class="bangla-font font-medium ">আপনি এখনো কোন Lesson Select করেন নি</p>
-                <h3 class="bangla-font text-3xl font-semibold ">একটি Lesson Select করুন।</h3>
-            </div>
-        </section>
-        <!-- level word show section end -->
-
-
-        <!-- Open the modal using ID.showModal() method -->
-        <dialog id="my_modal" class="modal">
-            <div class="modal-box">
-
-                <div id="modal-detail-container">
-                    
-                </div>
-
-                <div class="modal-action">
-                    <form method="dialog">
-                        <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn">Close</button>
-                    </form>
-                </div>
-            </div>
-        </dialog>
-    </main>
-    <!-- main section end -->
-
-    <script src="./script/script.js"></script>
+    <script src="./script/login.js"></script>
 </body>
 
 </html>
