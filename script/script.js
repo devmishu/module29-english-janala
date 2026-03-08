@@ -46,6 +46,7 @@ const loadLevelWord = (id) => {
     fetch(URL)
         .then(res => res.json())
         .then(data => displayLevelWord(data))
+
 }
 
 const displayLevelWord = (data) => {
@@ -79,7 +80,7 @@ const displayLevelWord = (data) => {
                     </div>
                     
                     <div class="bg-blue-100 p-3 rounded-sm ">
-                        <i class="fa-solid fa-volume-high text-2xl hover:cursor-pointer"></i>
+                        <i onclick="pronounceWord('${word.word}')" class="fa-solid fa-volume-high text-2xl hover:cursor-pointer"></i>
                     </div>
                 </div>
            
@@ -102,7 +103,6 @@ const displayLevelWord = (data) => {
     }
 
     levelWordContainerElement.append(wordsContainer);
-
 }
 
 // remove active all button
@@ -162,56 +162,95 @@ const fetchAllWord = async () => {
     let data = await res.json();
 };
 
-document.getElementById("search-btn").addEventListener("click", async (e) => {
-    const levelWordContainerElement = document.getElementById('level-word-container');
+document.getElementById("search-btn").addEventListener("click", async () => {
 
+    removeActiveClass();
+
+    const levelWordContainerElement = document.getElementById('level-word-container');
     levelWordContainerElement.innerHTML = "";
 
-    const wordsContainer = document.createElement('div');
-    wordsContainer.classList.add('grid', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-10');
-    
     const inputText = document.getElementById("search-text").value.toLowerCase().trim();
+
+    if (inputText === "") {
+        hideloading();
+        return;
+    }
 
     let res = await fetch("https://openapi.programming-hero.com/api/words/all");
     let data = await res.json();
     let allData = data.data;
 
-
-
     const filterData = allData.filter((element) =>
-        element.word.toLowerCase().includes(inputText),
+        element.word.toLowerCase().includes(inputText)
     );
 
-    filterData.map(word => {
+    if (filterData.length === 0) {
+        levelWordContainerElement.innerHTML = `
+        <div class="text-center py-20">
+            <p class="text-2xl text-gray-500">No Word Found</p>
+        </div>
+        `;
+        hideloading();
+        return;
+    }
+
+    const wordsContainer = document.createElement('div');
+    wordsContainer.classList.add('grid', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-10');
+
+    filterData.forEach(word => {
+
         const card = document.createElement('div');
         card.classList.add('bg-white', 'p-10', 'text-center', 'space-y-6', 'rounded-sm');
 
         card.innerHTML = `
-           
-                <h3 class="text-3xl font-bold ">${word.word ? word.word : 'word not abileabile'}</h3>
+        <h3 class="text-3xl font-bold">${word.word}</h3>
 
-                <p class="text-xl  font-medium">Meaning / Pronounciation</p>
-                <h3 class="text-3xl text-gray-700 font-bold font-bangla">${word.meaning ? word.meaning : 'word mening not abileabile'} / ${word.pronunciation ? word.pronunciation : 'pronunciation not abileabile'}</h3>
+        <p class="text-xl font-medium">Meaning / Pronunciation</p>
 
-                <div class="flex items-center justify-between  mt-20">
-                    <div class="bg-blue-100 p-3 rounded-sm ">
-                        <i onclick="loadWordDelail(${word.id})" class="fa-solid fa-circle-info text-2xl hover:cursor-pointer"></i>
-                    </div>
-                    
-                    <div class="bg-blue-100 p-3 rounded-sm ">
-                        <i class="fa-solid fa-volume-high text-2xl hover:cursor-pointer"></i>
-                    </div>
-                </div>
-           
+        <h3 class="text-3xl text-gray-700 font-bold font-bangla">
+        ${word.meaning ?? 'Not available'} /
+        ${word.pronunciation ?? 'Not available'}
+        </h3>
+
+        <div class="flex items-center justify-between mt-20">
+            <div class="bg-blue-100 p-3 rounded-sm">
+                <i onclick="loadWordDelail(${word.id})"
+                class="fa-solid fa-circle-info text-2xl cursor-pointer"></i>
+            </div>
+
+            <div class="bg-blue-100 p-3 rounded-sm">
+                <i onclick="pronounceWord('${word.word}')"
+                class="fa-solid fa-volume-high text-2xl cursor-pointer"></i>
+            </div>
+        </div>
         `;
-        wordsContainer.append(card);
 
+        wordsContainer.append(card);
     });
+
     levelWordContainerElement.append(wordsContainer);
 
-    // console.log(fetchAllWord());
-    // DisplayWordCard(filterData);
+    
 });
+
+// loading show function
+function showloading() {
+    const loadingContainerElement = document.getElementById('loading-container');
+    loadingContainerElement.classList.remove('hidden');
+    loadingContainerElement.classList.add('flex');
+}
+// loading hide function
+function hideloading() {
+    const loadingContainerElement = document.getElementById('loading-container');
+    loadingContainerElement.classList.add('hidden');
+}
+
+// word reading sound function
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
+}
 
 
 

@@ -92,11 +92,11 @@
 
     <!-- main section start -->
     <main>
-
         <!-- hero section start -->
         <section class="container mx-auto p-5 flex flex-col-reverse md:flex-row justify-center gap-10 mt-15 ">
             <div class="hero-content flex flex-col items-center md:items-start flex-1">
-                <h2 class="text-4xl font-bold">Start Your <span class="text-blue-400">English</span> Journey Today</h2>
+                <h2 class="text-center md:text-start text-4xl font-bold">Start Your <span
+                        class="text-blue-400">English</span> Journey Today</h2>
                 <p class="font-bangla text-xl md:text-2xl text-center md:text-start">আজ থেকেই আপনার ভাষা শেখা হোক সহজ,
                     মজার আর কার্যকর। আমাদের Interactive Lessons এর মাধ্যমে প্রতিদিন একটু একটু করে এগিয়ে যান আপনার ভাষা
                     দক্ষতার পরবর্তী ধাপে।</p>
@@ -131,6 +131,9 @@
 
         <!-- level word show section start -->
         <section id="level-word-container" class="container mx-auto p-5 bg-gray-100 py-10 my-10 rounded-sm ">
+            <div id="loading-container" class="justify-center items-center hidden">
+                <span class="loading loading-infinity loading-xl"></span>
+            </div>
             <div class="flex flex-col items-center justify-center space-y-4">
                 <p class="bangla-font font-medium ">আপনি এখনো কোন Lesson Select করেন নি</p>
                 <h3 class="bangla-font text-3xl font-semibold ">একটি Lesson Select করুন।</h3>
@@ -212,7 +215,7 @@
         <!-- footer section start -->
         <footer class="bg-[#EDF6FF]  py-16 ">
 
-            <div class="container mx-auto flex justify-between flex-col gap-5 md:flex-row  ">
+            <div class="container mx-auto flex justify-between flex-col gap-5 md:flex-row px-10 ">
                 <div class=" space-y-3">
                     <a href="main.html" class="flex items-center gap-2 text-2xl font-semibold hover:cursor-pointer">
                         <span>English</span>
@@ -235,16 +238,6 @@
         </footer>
         <!-- footer section end -->
 
-
-
-
-
-
-
-
-
-
-
         <!-- Open the modal using ID.showModal() method -->
         <dialog id="my_modal" class="modal">
             <div class="modal-box">
@@ -261,8 +254,6 @@
                 </div>
             </div>
         </dialog>
-
-
     </main>
     <!-- main section end -->
 
