@@ -7,7 +7,7 @@ LoginButtonElement.addEventListener('click', () => {
 
     if (LoginNameInput.value === 'Mishu Debnath' && LoginPasswordInput.value === 'bdbangla') {
         alert('Login Sessussfull');
-        window.location.replace('index.html')
+        window.location.assign('main.html');
     } else {
         alert('Invalid Name and password');
     }

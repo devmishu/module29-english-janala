@@ -126,36 +126,6 @@ const loadWordDelail = async (id) => {
 }
 
 
-/*
-id
-: 
-5
-level
-: 
-1
-meaning
-: 
-"আগ্রহী"
-partsOfSpeech
-: 
-"adjective"
-points
-: 
-1
-pronunciation
-: 
-"ইগার"
-sentence
-: 
-"The kids were eager to open their gifts."
-synonyms
-: 
-(3) ['enthusiastic', 'excited', 'keen']
-word
-: 
-"Eager"
-
-*/
 const displayWordDelail = (data) => {
     console.log(data);
     const modalDetailContainerElement = document.getElementById('modal-detail-container');
@@ -187,46 +157,6 @@ const displayWordDelail = (data) => {
     const myModal = document.getElementById('my_modal').showModal();
 
 }
+
+
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// card.addEventListener('click', () => {
-//     my_modal.showModal();
-//     myModal.innerHTML = `
-// <div class="modal-box">
-//     <h3 class="text-2xl font-bold mb-5">${word.word ? word.word : 'word not abileabile'} <span class=
-//     "font-bangla">(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation ? word.pronunciation : 'pronunciation not abileabile'} )</span></h3>
-//     <p class="text-xl  font-medium">Meaning</p>
-//     <p class="text-xl  font-medium font-bangla mb-5">${word.meaning ? word.meaning : 'word mening not abileabile'}</p>
-
-//     <p class="text-xl  font-medium">Example</p>
-
-//     <p class="py-4">Press ESC key or click the button below to close</p>
-
-//     <div class="modal-action">
-//         <form method="dialog">
-//             <!-- if there is a button in form, it will close the modal -->
-//             <button class="btn btn-primary">Complete Learning</button>
-//         </form>
-//     </div>
-// </div>
-// `;
-// })
-
-
-// modal inner html
