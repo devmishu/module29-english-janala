@@ -2,11 +2,15 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .font-bangla {
     font-family: "Hind Siliguri", sans-serif;
 }
 
-.active{
+.active {
     background-color: blue;
     color: white;
 }

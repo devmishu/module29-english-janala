@@ -37,7 +37,7 @@
 
 <body>
     <!-- header section start -->
-    <header>
+    <header class="sticky top-0">
         <div class="navbar bg-base-100 shadow-sm">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -51,19 +51,19 @@
                     <ul tabindex="-1"
                         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
                         <li>
-                            <a href=""> <i class="fa-solid fa-circle-question"></i>
+                            <a href="#faq"> <i class="fa-solid fa-circle-question"></i>
                                 FAQ</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa-solid fa-book-open"></i>
+                            <a href="#learn"><i class="fa-solid fa-book-open"></i>
                                 Learn</a>
                         </li>
                         <li>
-                            <a href="login.html"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                            <a href="index.html"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
-                <a class="flex items-center gap-2 text-2xl font-semibold ">
+                <a href="main.html" class="flex items-center gap-2 text-2xl font-semibold hover:cursor-pointer ">
                     <span>English</span>
                     <img src="./assets/logo.png" alt="logo">
                     <span class=" text-xl font-bangla">জানালা</span>
@@ -73,14 +73,15 @@
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 space-x-4">
                     <li>
-                        <a href="" class="btn btn-outline btn-primary"> <i class="fa-solid fa-circle-question"></i>
+                        <a href="#faq" class="btn btn-outline btn-primary"> <i class="fa-solid fa-circle-question"></i>
                             FAQ</a>
                     </li>
                     <li>
-                        <a href="" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a>
+                        <a href="#learn" class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>
+                            Learn</a>
                     </li>
                     <li>
-                        <a href="login.html" class="btn btn-outline btn-primary"> <i
+                        <a href="index.html" class="btn btn-outline btn-primary"> <i
                                 class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                     </li>
                 </ul>
@@ -91,13 +92,39 @@
 
     <!-- main section start -->
     <main>
+
+        <!-- hero section start -->
+        <section class="container mx-auto p-5 flex flex-col-reverse md:flex-row justify-center gap-10 mt-15 ">
+            <div class="hero-content flex flex-col items-center md:items-start flex-1">
+                <h2 class="text-4xl font-bold">Start Your <span class="text-blue-400">English</span> Journey Today</h2>
+                <p class="font-bangla text-xl md:text-2xl text-center md:text-start">আজ থেকেই আপনার ভাষা শেখা হোক সহজ,
+                    মজার আর কার্যকর। আমাদের Interactive Lessons এর মাধ্যমে প্রতিদিন একটু একটু করে এগিয়ে যান আপনার ভাষা
+                    দক্ষতার পরবর্তী ধাপে।</p>
+            </div>
+
+            <div class="w-full flex items-center justify-center hero-img flex-1 ">
+                <img class="h-[350px] w-[350px] md:h-[330px] md:w-[330px]   lg:h-[450px] lg:w-[450px]  xl:h-[500px] xl:w-[500px] rounded-full"
+                    src="./assets/home.png" alt="hero student image">
+            </div>
+        </section>
+        <!-- hero section end -->
+
         <!-- lesson section start -->
-        <section class="container mx-auto p-5 mt-36">
+        <section id="learn" class="container mx-auto p-5 mt-36">
             <div>
                 <h2 class="text-4xl font-bold text-center"><span class="text-blue-400">Let's</span> Learn Vocabularies
                 </h2>
                 <div id="lesson-container" class="mt-5  flex flex-wrap justify-center items-center gap-5 ">
                 </div>
+            </div>
+            <div class="w-10/12 mx-auto py-5 flex justify-center items-center gap-2">
+                <!-- Added w-full max-w-xs and input-bordered for visibility -->
+                <input id="search-text" type="text" placeholder="Search Word..."
+                    class="input input-bordered w-full max-w-xs focus:outline-blue-500" />
+                <button id="search-btn" class="btn btn-primary  px-6 text-white">
+                    Search
+                </button>
+                <!-- btn-success -->
             </div>
         </section>
         <!-- lesson section end -->
@@ -111,13 +138,119 @@
         </section>
         <!-- level word show section end -->
 
+        <!-- Frequently Asked Questions section start -->
+        <section id="faq" class="container mx-auto my-15 p-3 ">
+            <h2 class="text-4xl font-bold text-center mb-10"><span class="text-blue-400">Frequently</span> Asked
+                Questions
+            </h2>
+
+            <div class="space-y-5">
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        How can I start learning vocabulary?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Simply select a lesson from the "Let's Learn Vocabularies" section. Each lesson contains words
+                        with meanings and pronunciations to help you learn easily.
+                    </div>
+                </div>
+
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        What happens when I click a lesson button?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        When you click a lesson button, all vocabulary words related to that lesson will appear in the
+                        vocabulary section with their meanings and pronunciations.
+                    </div>
+                </div>
+
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        How can I see detailed information about a word?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Click the information icon on any word card. A popup will open showing the meaning,
+                        pronunciation, example sentence, and synonyms.
+                    </div>
+                </div>
+
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        How does the search feature work?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        You can type any word in the search box and click the search button. The system will display all
+                        matching vocabulary words instantly.
+                    </div>
+                </div>
+
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        Can I learn pronunciation of words here?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Yes. Each word includes its pronunciation to help you understand how the word is spoken in
+                        English.
+                    </div>
+                </div>
+
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+                    <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">
+                        Is this platform free to use?
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Yes. English Janala is completely free and designed to help learners improve their English
+                        vocabulary easily.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Frequently Asked Questions section end -->
+
+        <!-- footer section start -->
+        <footer class="bg-[#EDF6FF]  py-16 ">
+
+            <div class="container mx-auto flex justify-between flex-col gap-5 md:flex-row  ">
+                <div class=" space-y-3">
+                    <a href="main.html" class="flex items-center gap-2 text-2xl font-semibold hover:cursor-pointer">
+                        <span>English</span>
+                        <img src="./assets/logo.png" alt="logo">
+                        <span class=" text-xl font-bangla">জানালা</span>
+                    </a>
+                    <h1 class="font-bangla text-xl font-medium">ইংরেজি শিখুন সহজে</h1>
+                    <p class="text-sm text-gray-400">Providing Ed-Tech Applications since 2025</p>
+                </div>
+
+                <div class="">
+                    <h1 class="text-xl font-semibold mb-4">Follow Us</h1>
+                    <div class="flex gap-5 text-2xl">
+                        <i class="fa-brands fa-facebook hover:text-blue-500 cursor-pointer transition"></i>
+                        <i class="fa-brands fa-youtube hover:text-red-600 cursor-pointer transition"></i>
+                        <i class="fa-brands fa-instagram hover:text-pink-500 cursor-pointer transition"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer section end -->
+
+
+
+
+
+
+
+
+
+
 
         <!-- Open the modal using ID.showModal() method -->
         <dialog id="my_modal" class="modal">
             <div class="modal-box">
 
                 <div id="modal-detail-container">
-                    
+
                 </div>
 
                 <div class="modal-action">
@@ -128,6 +261,8 @@
                 </div>
             </div>
         </dialog>
+
+
     </main>
     <!-- main section end -->
 

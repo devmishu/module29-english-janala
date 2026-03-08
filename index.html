@@ -37,7 +37,7 @@
 
 <body>
     <!-- header section start -->
-    <header>
+    <header class="sticky top-0">
         <div class="navbar bg-base-100 shadow-sm">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -63,7 +63,7 @@
                         </li>
                     </ul>
                 </div>
-                <a class="flex items-center gap-2 text-2xl font-semibold ">
+                <a href="main.html" class="flex items-center gap-2 text-2xl font-semibold hover:cursor-pointer ">
                     <span>English</span>
                     <img src="./assets/logo.png" alt="logo">
                     <span class=" text-xl font-bangla">জানালা</span>
@@ -103,10 +103,11 @@
 
 
             <form class="flex flex-col gap-2 items-center md:items-start">
-                <input id="LoginName" type="text" placeholder="Enter Your Name"
-                    class="py-1 px-3 rounded-sm border border-gray-300">
-                <input id="LoginPassword" type="password " placeholder=".................."
-                    class="py-1 px-3 rounded-sm border border-gray-300">
+                <input id="LoginName" type="text" placeholder="Enter Name: admin"
+                    class="py-1 px-3 rounded-sm border border-gray-300 placeholder:text-[12px] placeholder:text-blue-700">
+                <!-- <p class="text-blue-700 text-[14px] items-start"></p> -->
+                <input id="LoginPassword" type="password " placeholder="Enter Password: admin123"
+                    class="py-1 px-3 rounded-sm border border-gray-300 placeholder:text-[12px] placeholder:text-blue-700">
                 <input id="LoginButton" type="button" value="Get Start" class="btn btn-active btn-primary w-fit">
             </form>
         </div>
@@ -116,6 +117,33 @@
         </div>
     </section>
     <!-- hero section end -->
+
+
+    <!-- footer section start -->
+    <footer class="bg-[#EDF6FF]  py-16 ">
+
+        <div class="container mx-auto flex justify-between flex-col gap-5 md:flex-row  ">
+            <div class=" space-y-3">
+                <a class="flex items-center gap-2 text-2xl font-semibold ">
+                    <span>English</span>
+                    <img src="./assets/logo.png" alt="logo">
+                    <span class=" text-xl font-bangla">জানালা</span>
+                </a>
+                <h1 class="font-bangla text-xl font-medium">ইংরেজি শিখুন সহজে</h1>
+                <p class="text-sm text-gray-400">Providing Ed-Tech Applications since 2025</p>
+            </div>
+
+            <div class="">
+                <h1 class="text-xl font-semibold mb-4">Follow Us</h1>
+                <div class="flex gap-5 text-2xl">
+                    <i class="fa-brands fa-facebook hover:text-blue-500 cursor-pointer transition"></i>
+                    <i class="fa-brands fa-youtube hover:text-red-600 cursor-pointer transition"></i>
+                    <i class="fa-brands fa-instagram hover:text-pink-500 cursor-pointer transition"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
 
     <script src="./script/login.js"></script>
 </body>
